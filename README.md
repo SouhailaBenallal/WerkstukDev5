@@ -213,7 +213,7 @@ const syntaxHelpers = {
 }
 export default syntaxHelpers
 ```
-### Step 3.3 Create a file "__Test__" && create a document "helpers.js"
+### Step 3.4 Create a file "__Test__" && create a document "helpers.js"
 ```bash
 
 import syntaxHelpers from './../WerkstukDev5/helpers/syntaxHelpers.js'
@@ -245,7 +245,7 @@ describe('check punctiation syntax function', () => {
 })
 ```
 
-### Step 3.4 Edit "index.js"
+### Step 3.5 Edit "index.js"
 ```bash
 import syntaxHelpers from './helpers/syntaxHelpers.js'
 ```

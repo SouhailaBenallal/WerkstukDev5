@@ -15,7 +15,7 @@ app.listen(port,() =>{
 
 app.get('/', (req,res) =>{
     console.log('[TEST]!')
-    res.send('Hompage')
+    res.status(200).send('Hompage')
 })
 
 app.get('/user', function (req, res) { 
