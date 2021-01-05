@@ -30,7 +30,7 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-app.post('/use', function(req,res){
+app.post('/user', function(req,res){
     const userInput = req.body.user
     const capitalised = syntaxHelpers.capitalFirstCharacter(userInput)
     const puntcuated = syntaxHelpers.capitalFirstCharacter(userInput)

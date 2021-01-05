@@ -2,10 +2,7 @@ import express from 'express'
 
 import{createUser, getUsers,getUser,deleteUser,updateUser} from '../controllers/user.js'
 
-
 const router = express.Router();
-
-
 
 //all routes in here are starting with /users
 router.get('/', getUsers)

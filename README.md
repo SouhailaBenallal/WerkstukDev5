@@ -259,4 +259,41 @@ app.post('/use', function(req,res){
     res.send(puntcuated, req.body.user, capitalised)
 })
 ```
+## Step 3 Supertest && Http-server
+### Step 3.1 Install Supertest && Http-server
+```bash
+npm install supertest --save-dev
+npm install --global http-server
+```
 
+### Step 3.2 In the fil "helpers" && create a document "integretion.js"
+```bash
+import httpserver from 'http-server'
+import supertest from 'supertest'
+
+import app from '../../WerkstukDev5/index.js'
+const request = supertest(app)
+
+describe('test /POST endpoint',()=>{
+    test('false input', async(done) =>{
+        const respone = await request.post('/user').send({})
+        excpext(respone.status).toBe(403)
+        done()
+    })
+    test('false input', async(done) =>{
+        const respone = await request.post('/user').send({user:2})
+        excpext(respone.status).toBe(403)
+        done()
+    })
+    test('false input', async(done) =>{
+        const respone = await request.post('/user').send({user:"Souhaial"})
+        excpext(respone.status).toBe(403)
+        done()
+    })
+    test('false input', async(done) =>{
+        const respone = await request.post('/user',).send({user:"user with the name added to the database"})
+        excpext(respone.status).toBe("User With The Name Added To The Database.")
+        done()
+    })
+})
+```
