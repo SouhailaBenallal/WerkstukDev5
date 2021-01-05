@@ -1,4 +1,4 @@
-const SyntaxHelpers = {
+const syntaxHelpers = {
 
     capitalFirstCharacter: (userInput) =>{
         if(userInput != "" && userInput != null){
@@ -10,10 +10,17 @@ const SyntaxHelpers = {
         }
         return null
     },
-    addPunctuation: () =>
+    replacePunctuation: () =>
     {
-        
-    }
+        if(userInput != "" && userInput != null){
+            if(typeof userInput !== 'number'){
+                if(userInput.length > 1){
+                    return string.charAt(0).replace(/,/g,'.') + string.slice(1)
+                }
+            }
+        }
+        return null
+    },
 
 }
-export default SyntaxHelpers
+export default syntaxHelpers

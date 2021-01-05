@@ -167,4 +167,96 @@ export const updateUser = (req, res) => {
 }
 
 ```
+## Step 3 Pipeline && Jest
+### Step 3.1 Create your first JavaScript pipeline
+
+Sign in to your [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=javascript%2Ctfs-2018-2%2Cbrowser)  organization and navigate to your project.
+In your project, navigate to the Pipelines page. Then choose the action to create a new pipeline.
+Walk through the steps of the wizard by first selecting GitHub as the location of your source code.
+You might be redirected to GitHub to sign in. If so, enter your GitHub credentials.
+When the list of repositories appears, select your Node.js sample repository.
+Azure Pipelines will analyze the code in your repository and recommend Node.js template for your pipeline. Select that template.
+Azure Pipelines will generate a YAML file for your pipeline. Select Save and run, then select Commit directly to the main branch, and then choose Save and run again.
+A new run is started. Wait for the run to finish. 
+
+### Step 3.2 Install jest
+```bash
+npm install --save-dev jest
+```
+### Step 3.3 Create a file "helpers" && create a document "syntaxHelpers.js"
+```bash
+const syntaxHelpers = {
+
+    capitalFirstCharacter: (userInput) =>{
+        if(userInput != "" && userInput != null){
+            if(typeof userInput !== 'number'){
+                if(userInput.length > 1){
+                    return string.charAt(0).toUpperCase() + string.slice(1)
+                }
+            }
+        }
+        return null
+    },
+    addPunctuation: () =>
+    {(userInput) =>{
+        if(userInput != "" && userInput != null){
+            if(typeof userInput !== 'number'){
+                if(userInput.length > 1){
+                    return string.charAt(0).replace(/,/g,'.') + string.slice(1)
+                }
+            }
+        }
+        return null
+    },
+        
+
+}
+export default syntaxHelpers
+```
+### Step 3.3 Create a file "__Test__" && create a document "helpers.js"
+```bash
+
+import syntaxHelpers from './../WerkstukDev5/helpers/syntaxHelpers.js'
+
+describe('check capital syntax function', () => {
+    test('Empty', () => {
+        expect(syntaxHelpers.addCapital("")).toBe(null);
+        expect(syntaxHelpers.addCapital(123)).toBe(null);
+        expect(syntaxHelpers.addCapital("a")).toBe(null);})
+        
+    test('Hello world comes back the same', () => {
+        expect(syntaxHelpers.addCapital("hello world")).toBe("Hello world");
+    })
+    test('hello world comes back as Hello world', () => {
+        expect(syntaxHelpers.addCapital("hello world")).toBe("Hello world");
+    })
+
+})
+
+describe('check punctiation syntax function', () => {
+    test('Empty', () => {
+        expect(syntaxHelpers.addPunctiation("")).toBe(null);
+        expect(syntaxHelpers.addPunctiation(123)).toBe(null);
+        expect(syntaxHelpers.addCapital("a")).toBe(null);
+    })
+    test('hello world comes back as Hello world', () => {
+        expect(syntaxHelpers.addCapital("hello world")).toBe("Hello world");
+    })
+})
+```
+
+### Step 3.4 Edit "index.js"
+```bash
+import syntaxHelpers from './helpers/syntaxHelpers.js'
+```
+```bash
+app.post('/use', function(req,res){
+    const userInput = req.body.user
+    const capitalised = syntaxHelpers.capitalFirstCharacter(userInput)
+    const puntcuated = syntaxHelpers.capitalFirstCharacter(userInput)
+    const body = req.body;
+    console.log(req.body.user)
+    res.send(puntcuated, req.body.user, capitalised)
+})
+```
 
