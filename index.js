@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import usersRoutes from './routes/users.js'
+import SyntaxHelpers from './../WerkstukDev5/helpers/SyntaxHelpers.js'
 
 const app = express()
 const port = 3030;
@@ -30,7 +31,10 @@ app.use(express.urlencoded({
 }))
 
 app.post('/use', function(req,res){
-    var body = req.body;
+    const userInput = req.body.user
+    const capitalised = SyntaxHelpers.capitalFirstCharacter(userInput)
+    const puntcuated = SyntaxHelpers.capitalFirstCharacter(userInput)
+    const body = req.body;
     console.log(req.body.user)
-    res.send(req.body.user)
+    res.send(puntcuated, req.body.user, capitalised)
 })
