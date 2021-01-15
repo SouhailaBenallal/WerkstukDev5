@@ -1,9 +1,12 @@
 import express from 'express'
 
 import{createUser, getUsers,getUser,deleteUser,updateUser} from '../controllers/user.js'
-
+/**
+* [description]
+* @params:
+* @returns: 
+*/
 const router = express.Router();
-
 //all routes in here are starting with /users
 router.get('/', getUsers)
 router.post('/', createUser)

@@ -1,4 +1,9 @@
 import syntaxHelpers from './../WerkstukDev5/helpers/syntaxHelpers.js'
+/**
+* [description]
+* @params:
+* @returns: 
+*/
 
 describe('check capital syntax function', () => {
     test('Empty', () => {
