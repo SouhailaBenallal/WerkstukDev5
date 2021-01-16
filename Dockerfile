@@ -1,14 +1,15 @@
-
-FROM node:15.0.1-alpine3.10
+FROM node as builer
 
 RUN mkdir -p /usr/src/app
 
-WORKDIR /usr/app/api  
+WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package.json /usr/src/app/
 
-RUN npm install
+RUN npm install 
 
-COPY . .
+COPY . /usr/src/app
 
-CMD ["npm",  "start"]
+EXPOSE 3020 
+
+CMD ["npm", "start"]
