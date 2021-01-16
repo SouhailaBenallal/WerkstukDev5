@@ -10,6 +10,7 @@ const updateUser = require('../controllers/user.js')
 * @params:
 * @returns: 
 */
+
 const router = express.Router();
 //all routes in here are starting with /users
 router.get('/', getUsers)
