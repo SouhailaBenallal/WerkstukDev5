@@ -1,12 +1,15 @@
-import express from 'express'
+const express = require('express')
+const createUser = require('../controllers/user.js')
+const getUsers = require('../controllers/user.js')
+const getUser = require('../controllers/user.js')
+const deleteUser = require('../controllers/user.js')
+const updateUser = require('../controllers/user.js')
 
-import{createUser, getUsers,getUser,deleteUser,updateUser} from '../controllers/user.js'
 /**
 * [description]
 * @params:
 * @returns: 
 */
-
 const router = express.Router();
 //all routes in here are starting with /users
 router.get('/', getUsers)

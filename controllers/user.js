@@ -1,20 +1,22 @@
-import { v4 as uuidv4} from 'uuid' 
+const { v4: uuidv4 } = require('uuid');
 
 let users = []
 
-export const getUsers = (req, res) =>{
+const getUsers = (req, res) =>{
     res.send(users)
 }
+module.exports = getUsers
 
-export const createUser = (req, res) => {
+const createUser = (req, res) => {
     const user = req.body
     users.push({
         ...user,
         id: uuidv4() });
     res.send(`User with the name ${user.firstName} added to the database`)
 }
+module.exports = createUser
 
-export const getUser = (req, res) => {
+const getUser = (req, res) => {
     const {id} = req.params
 
     const foundUser = users.find((user) => user.id === id)
@@ -22,8 +24,10 @@ export const getUser = (req, res) => {
     res.send(foundUser)
 
 }
+module.exports = getUser
 
-export const deleteUser = (req, res) => {
+
+const deleteUser = (req, res) => {
     const {
         id
     } = req.params
@@ -33,6 +37,7 @@ export const deleteUser = (req, res) => {
     res.send(`User with the ${id} deleted from the database`)
 
 }
+module.exports = deleteUser
 
 export const updateUser = (req, res) => {
     const {
@@ -54,4 +59,4 @@ export const updateUser = (req, res) => {
 
     res.send(`User wiht the id ${id} has been updated`) 
 }
-
+module.exports = updateUser
