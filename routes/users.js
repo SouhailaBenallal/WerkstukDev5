@@ -1,10 +1,6 @@
-const express = require('express')
-const createUser = require('../controllers/user.js')
-const getUsers = require('../controllers/user.js')
-const getUser = require('../controllers/user.js')
-const deleteUser = require('../controllers/user.js')
-const updateUser = require('../controllers/user.js')
+import express from 'express'
 
+import{createUser, getUsers,getUser,deleteUser,updateUser} from '../controllers/user.js'
 /**
 * [description]
 * @params:
