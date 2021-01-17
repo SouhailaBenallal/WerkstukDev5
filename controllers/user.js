@@ -1,5 +1,13 @@
 import { v4 as uuidv4} from 'uuid' 
 
+ /**
+   * generates UUID
+   * 
+   * @params uuid: String 
+   * @returns uuid: String
+   */
+  
+
 let users = []
 
 export const getUsers = (req, res) =>{
@@ -33,7 +41,6 @@ export const deleteUser = (req, res) => {
     res.send(`User with the ${id} deleted from the database`)
 
 }
-
 export const updateUser = (req, res) => {
     const {
         id
@@ -54,4 +61,3 @@ export const updateUser = (req, res) => {
 
     res.send(`User wiht the id ${id} has been updated`) 
 }
-

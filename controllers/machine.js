@@ -1,5 +1,12 @@
 import { v4 as uuidv4} from 'uuid' 
 
+ /**
+   * generates UUID
+   * 
+   * @params uuid: String 
+   * @returns uuid: String
+   */
+
 let machines = []
 
 export const getMachines = (req, res) =>{
@@ -18,7 +25,6 @@ export const getMachine = (req, res) => {
     const {id} = req.params
 
     const foundMachine = machines.find((machine) => machine.id === id)
-
     res.send(foundMachine)
 
 }
