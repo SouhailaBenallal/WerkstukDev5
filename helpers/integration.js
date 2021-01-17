@@ -1,15 +1,36 @@
-// import httpserver from 'http-server'
-// import supertest from 'supertest'
+const supertest = require('supertest')
+const http = require('http');
 
-// import app from '../../WerkstukDev5/index.js'
-// const request = supertest(app)
+const tempApp = require('../../index.js')
+const request = supertest(tempApp)
 
-//     test('User add', async(done) =>{
-//         await request(app).post('/user').send({
-//             firstName:'Souhaila',
-//             lastName:'Ben allal',
-//             studyYear:'Last Year',
-//             gendre:'F'
-//         })
+describe('test users endpoint', () => {
+  test('if no input resolves', async (done) => {
+    const response = await request.post('/users').send({})
+    expect(response.status).toBe(400)
+    done();
+  })
 
-//     })
+  test('if bad input resolves', async (done) => {
+    const response = await request.post('/users').send()
+    expect(response.status).toBe(400)
+
+    done();
+  })
+
+  test('if good input resolves', async (done) => {
+    const response = await request.post('/users').send()
+    expect(response.body.emoji).toBe(":(")
+    done();
+  })
+
+
+  test('if bad input resolves', async (done) => {
+    const response = await request.post('/users').send()
+    expect(response.body.emoji).toBe(":)")
+
+    done();
+  })
+
+
+})
