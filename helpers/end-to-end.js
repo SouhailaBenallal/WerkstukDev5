@@ -9,7 +9,7 @@ const DatabaseHelper = require('./../../WerkstukDev5/knex/knexfile')
 let db_uuid;
 
 
-describe('test question endpoint', () => {
+describe('test machine endpoint', () => {
   test('if post request succeeds', async (done) => {
     const response = await request.post('/machines').send()
     expect(response.status).toBe(200)
