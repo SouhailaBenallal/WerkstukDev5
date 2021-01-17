@@ -39,7 +39,7 @@ const deleteUser = (req, res) => {
 }
 module.exports = deleteUser
 
-export const updateUser = (req, res) => {
+const updateUser = (req, res) => {
     const {
         id
     } = req.params
