@@ -10,8 +10,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- run: cd api && npm install
-- run: cd api && npm test 
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
