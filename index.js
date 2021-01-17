@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import usersRoutes from './routes/users.js'
-import syntaxHelpers from './helpers/syntaxHelpers.js'
+// import syntaxHelpers from './helpers/syntaxHelpers.js'
 
 const app = express()
 const port = 3030;
@@ -30,11 +30,44 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-app.post('/user', function(req,res){
-    const userInput = req.body.user
-    const capitalised = syntaxHelpers.capitalFirstCharacter(userInput)
-    const puntcuated = syntaxHelpers.capitalFirstCharacter(userInput)
-    const body = req.body;
-    console.log(req.body.user)
-    res.send(puntcuated, req.body.user, capitalised)
+// app.post('/user', function(req,res){
+//     const userInput = req.body.user
+//    // const capitalised = syntaxHelpers.capitalFirstCharacter(userInput)
+//     //const puntcuated = syntaxHelpers.capitalFirstCharacter(userInput)
+//     const body = req.body;
+//     console.log(req.body.user)
+//     res.send(req.body.user)
+// })
+
+app.post('/use', function(req,res){
+    const body = req.body;		    
+    console.log(body.user)		    
+    res.send(body.user)		   
+})
+
+
+
+
+
+app.get('/machine', function (req, res) { 
+    res.send('Hello machine')
+})
+
+app.get('/machine:id', function (req, res) { 
+    res.json({"name":"Souhaila"})
+})
+
+// app.post('/user', function(req,res){
+//     const userInput = req.body.user
+//    // const capitalised = syntaxHelpers.capitalFirstCharacter(userInput)
+//     //const puntcuated = syntaxHelpers.capitalFirstCharacter(userInput)
+//     const body = req.body;
+//     console.log(req.body.user)
+//     res.send(req.body.user)
+// })
+
+app.post('/machines', function(req,res){
+    const body = req.body;		    
+    console.log(body.user)		    
+    res.send(body.user)		   
 })
